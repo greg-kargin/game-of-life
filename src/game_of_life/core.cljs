@@ -77,6 +77,9 @@
   (swap! app-state assoc :game-running true)
   (run-game!))
 
+(defn stop-button! []
+  (swap! app-state assoc :game-running false))
+
 (defn kill-button! []
   (swap! app-state assoc :game-running false)
   (swap! app-state assoc :board (new-board board-size)))
@@ -103,7 +106,7 @@
       :N (rectangle i j)
       :A (circle i j))))
 
-(defn game-of-life []
+(defn game-of-life! []
   [:center
    [:h1 (:text @app-state) [:board]]
    (into
@@ -117,12 +120,15 @@
    [:p
     [:button
     {:on-click #(run-button!)}
-     "It's alive!"]
+     "Run"]
+    [:button
+     {:on-click #(stop-button!)}
+     "Stop"]
     [:button
      {:on-click #(kill-button!)}
-      "I gave you birth and I will kill you!"]]])
+      "Kill"]]])
 
-(reagent/render-component [game-of-life]
+(reagent/render-component [game-of-life!]
                           (. js/document (getElementById "app")))
 
 (defn on-js-reload [])
