@@ -1,6 +1,9 @@
 # Game of Life
 
-My attempt on writing famous John Conway's [cellular automaton](https://en.wikipedia.org/wiki/Cellular_automaton).
+My attempt on writing famous John Conway's
+[cellular automaton](https://en.wikipedia.org/wiki/Cellular_automaton).
+
+![Game](resources/screenshot.png?raw=true "screenshot")
 
 ## Overview
 
